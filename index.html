@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration Form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Student Registration Form</h1>
+    <form id="registrationForm" method="POST" action="http://127.0.0.1:3001/students">
+      <!-- Profile Photo Section -->
+      <div class="profile-photo">
+        <label for="profilePhoto">
+          <img id="profileImage" src="PP.png" alt="Profile Photo" class="profile-img">
+        </label>
+        <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*" onchange="loadFile(event)" style="display: none;">
+      </div>
+
+      <!-- Other Form Fields -->
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName">
+
+      <label for="fatherName">Father's Name:</label>
+      <input type="text" id="fatherName" name="fatherName" required>
+
+      <label for="motherName">Mother's Name:</label>
+      <input type="text" id="motherName" name="motherName" required>
+
+      <label for="fatherOccupation">Father's Occupation:</label>
+      <input type="text" id="fatherOccupation" name="fatherOccupation" required>
+
+      <label for="motherOccupation">Mother's Occupation:</label>
+      <input type="text" id="motherOccupation" name="motherOccupation" required>
+
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="phone">Phone:</label> 
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required>
+
+      <label for="qualification">Qualification:</label>
+      <input type="text" id="qualification" name="qualification" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="institutionType">Institution Type:</label>
+      <select id="institutionType" name="institutionType" required>
+        <option value="school">School</option>
+        <option value="college">College</option>
+      </select>
+
+      <label for="institutionName">Institution Name:</label>
+      <input type="text" id="institutionName" name="institutionName" required>
+
+      <label for="institutionLocation">Institution Location:</label>
+      <input type="text" id="institutionLocation" name="institutionLocation" required>
+
+      <label for="address">Address:</label>
+      <input type="text" id="addressNumber" name="addressNumber" placeholder="Number" required>
+      <input type="text" id="addressStreet" name="addressStreet" placeholder="Street" required>
+      <input type="text" id="addressCity" name="addressCity" placeholder="City" required>
+      <input type="text" id="addressState" name="addressState" placeholder="State" required>
+      <input type="text" id="addressCountry" name="addressCountry" placeholder="Country" required>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <div id="previewSection"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
