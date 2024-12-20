@@ -8,8 +8,14 @@ const path = require('path');
 const app = express();
 
 // Middleware
+const uploadsDir = path.join(__dirname, 'public/uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+}
+
+// Middleware
 app.use(cors({
-  origin: 'http://127.0.0.1:5500',  // Allow requests from this origin
+  origin: '*',  // Allow requests from any origin
   methods: ['POST'],
 }));
 app.use(bodyParser.json());
@@ -19,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Multer setup for file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, '/uploads/');
+    cb(null, uploadsDir);
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + path.extname(file.originalname));
